@@ -1,0 +1,171 @@
+/* src/app/components/movie-search/movie-search.component.css */
+body {
+  background-color: #296832 !important;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #363f61;
+  font-family: 'Mona Sans', sans-serif;
+  padding: 40px;
+  border-radius: 10px;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
+  max-width: 800px;
+  /* width: 100%; */
+  text-align: center;
+  /* margin-left: 20%; */
+}
+
+h1, h2 {
+  font-size: 22px;
+  color: #f0f0f0;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px !important;
+}
+
+form {
+  margin-bottom: 5%;
+}
+
+.text-search {
+  width: 92% !important;
+}
+
+select, input[type="text"], button {
+  width: 100%;
+  padding: 12px;
+  margin: 0;
+  border-radius: 8px;
+  border: 1px solid #444;
+  font-size: 16px;
+  background-color: #0000005a;
+  color: #f0f0f0;
+}
+
+select:focus, input[type="text"]:focus, button:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.results {
+  margin-top: 30px;
+}
+
+.result-item {
+  background-color: #444;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.result-item h2 {
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #f0f0f0;
+}
+
+.result-item p {
+  margin: 5px 0;
+  color: #b0b0b0;
+}
+
+
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Grid adaptable */
+  gap: 20px; /* Espacio entre tarjetas */
+  justify-items: center; /* Centrar horizontalmente */
+}
+
+.card {
+  /* width: 100%; */
+  max-width: 300px;
+  background-color: #333; /* Fondo oscuro para la tarjeta */
+  color: #fff; /* Texto blanco */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center; /* Centrar texto */
+}
+
+.card-title {
+  font-size: 1.0rem;
+  margin-bottom: 10px;
+  font-family: 'Inter', sans-serif; /* Ejemplo de fuente moderna */
+}
+
+.platforms {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.platform-badge {
+  background-color: #555;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.6rem;
+}
+
+.card p {
+  margin: 5px 0;
+  font-size: 15px !important;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+  background-color: #444; /* Color de fondo más llamativo */
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+  margin-top: 10%;
+}
+
+.disabled-class {
+  background-color: gray;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+  .card {
+    max-width: 100%; /* Permite que las tarjetas ocupen todo el ancho en pantallas pequeñas */
+  }
+}

@@ -1,0 +1,77 @@
+<!-- src/app/components/movie-search/movie-search.component.html -->
+<div class="container">
+  <h2>Donde mirar?</h2>
+  <form (ngSubmit)="search()">
+    <div class="form-group">
+      <select [(ngModel)]="country" name="country" required>
+        <option value="" disabled selected>Seleccione un país</option>
+        <option value="AR">🇦🇷 Argentina</option>
+        <option value="BO">🇧🇴 Bolivia</option>
+        <option value="BR">🇧🇷 Brasil</option>
+        <option value="CL">🇨🇱 Chile</option>
+        <option value="CO">🇨🇴 Colombia</option>
+        <option value="EC">🇪🇨 Ecuador</option>
+        <option value="GY">🇬🇾 Guyana</option>
+        <option value="PY">🇵🇾 Paraguay</option>
+        <option value="PE">🇵🇪 Perú</option>
+        <option value="UY">🇺🇾 Uruguay</option>
+        <option value="VE">🇻🇪 Venezuela</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input
+        [(ngModel)]="title"
+        type="text"
+        class="text-search"
+        name="title"
+        placeholder="Título"
+        required
+      />
+    </div>
+    <button type="submit" [disabled]="this.country == '' || this.title == ''" [ngClass]="{'disabled-class': this.country == '' || this.title == ''}">
+      Buscar
+    </button>
+  </form>
+  <div class="cards-container" *ngIf="!loader">
+    <div *ngFor="let item of results">
+        <div class="card" *ngIf="item.watch_providers !== undefined">
+          <h3 class="card-title">{{ item.title || item.name }}</h3>
+          <p *ngIf="item.release_date">
+            <strong>Fecha de Estreno:</strong> {{ item.release_date || "N/A" }}
+          </p>
+          <p>
+            <strong>Categoría:</strong>
+            {{ item.media_type === "movie" ? "Película" : "Serie" }}
+          </p>
+          <div *ngIf="item.watch_providers.rent?.length > 0">
+            <p><strong>Disponible en</strong></p>
+            <div class="platforms">
+              <span
+                *ngFor="let provider of item.watch_providers.rent"
+                class="platform-badge"
+              >
+                {{ provider.provider_name }}
+              </span>
+            </div>
+          </div>
+          <div *ngIf="item.watch_providers.flatrate?.length > 0">
+            <p><strong>Incluido en Suscripción</strong></p>
+            <div class="platforms">
+              <span
+                *ngFor="let provider of item.watch_providers.flatrate"
+                class="platform-badge"
+              >
+                {{ provider.provider_name }}
+              </span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="cards-container" *ngIf="emptyResults">
+    <p>No se encontraron resultados para {{ this.title }}</p>
+  </div>
+  <div class="cards-container" *ngIf="loader">
+    <div class="loader"> </div>
+  </div>
+</div>
