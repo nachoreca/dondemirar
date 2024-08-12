@@ -172,14 +172,13 @@ button:hover {
 
 
 .footer {
-  background-color: transparent; /* Fondo oscuro para el footer */
+  background-color: #363f61;
   color: #fff; /* Texto blanco */
   text-align: center; /* Centrar texto */
-  padding: 20px;
+  padding: 0px 35px 20px 70px;
   position: fixed;
   bottom: 0;
-  /* width: 100%; */
-  /* display: flex; */
+  display: block;
   justify-content: center;
   align-items: center;
 }
