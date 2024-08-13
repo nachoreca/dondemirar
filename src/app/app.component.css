@@ -54,6 +54,21 @@ select,
   cursor: pointer;
 }
 
+.clear-btn {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: rgba(119, 136, 153, 0.302);
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
 .search-btn:hover {
   /* background-color: rgba(106, 147, 121, 0.788); */
 }
@@ -182,4 +197,24 @@ select,
 
 .card-hidden {
   display: hidden;
+}
+
+@media (min-width: 1200px) {
+  .platform-badge {
+    padding: 5px;
+  }
+
+  .title {
+    margin-bottom: 1%;
+  }
+
+  .footer {
+    width: 99%;
+    display: inline-flex;
+    height: 20px;
+    a {
+      margin-top: 10%;
+      margin-left: 42%;
+    }
+  }
 }

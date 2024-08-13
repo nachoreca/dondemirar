@@ -25,6 +25,8 @@
     </select>
 
     <button (click)="search()" class="search-btn" [ngClass]="{'disabled': this.title == '' || this.country == '' }">Buscar</button>
+    <button (click)="clear()" class="clear-btn" *ngIf="this.results.length > 0">Limpiar resultados</button>
+
   </div>
 
   <!-- <div *ngIf="results.length === 0 && !loader" class="no-results">
