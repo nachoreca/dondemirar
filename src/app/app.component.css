@@ -181,6 +181,7 @@ button:hover {
   display: block;
   justify-content: center;
   align-items: center;
+  min-width: 65% !important;
 }
 
 .footer-content {
@@ -194,7 +195,7 @@ button:hover {
   font-size: 14px !important;
 }
 
-/* .footer-icon img {
+.footer-icon {
   width: 16px;
   height: 16px;
-} */
+}
