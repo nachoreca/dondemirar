@@ -16,6 +16,7 @@ export class AppComponent {
   title: string = '';
   results: any[] = [];
   loader: boolean = false;
+  darkMode = true;
   emptyResults: boolean = false;
   constructor(private movieService: ServiceService) {}
 
@@ -75,7 +76,9 @@ export class AppComponent {
     }, 300)
   }
 
-
-
+  toggleTheme() {
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle('light-mode', !this.darkMode);
+  }
 
 }
