@@ -16,7 +16,7 @@ export class ServiceService {
 
   // Buscar contenido basado en título y país
   async search(query: string, country: string): Promise<Observable<any>> {
-    const url = `${this.apiUrl}?api_key=${this.apiKey}&query=${query}&region=${country}`;
+    const url = `${this.apiUrl}?api_key=${this.apiKey}&query=${query}&region=${country}&language=es-ES`;
     return this.http.get<any>(url);
   }
 
