@@ -38,6 +38,7 @@ export class AppComponent {
   // }
 
   search() {
+    this.results = []; //Se reinicia el resultado final.
     setTimeout(async () => {
       this.loader = true;
       (await this.movieService.search(this.title, this.country)).subscribe(data => {
