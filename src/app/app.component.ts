@@ -16,8 +16,9 @@ export class AppComponent {
   title: string = '';
   results: any[] = [];
   loader: boolean = false;
-  darkMode = true;
-  emptyResults: boolean = false;
+  darkMode: boolean = false;
+  searched: boolean = false;
+  fill: string = 'black';
   constructor(private movieService: ServiceService) {}
 
   search() {
@@ -26,15 +27,16 @@ export class AppComponent {
       this.loader = true;
       (await this.movieService.search(this.title, this.country)).subscribe(
         (data) => {
+
+          this.searched = true;
+
           if (data.results) {
             this.results = data.results;
             this.loader = false;
-            this.emptyResults = false;
           }
 
           if (!data.results) {
             this.loader = false; // No hay resultados, oculta el loader
-            this.emptyResults = true;
             return;
           }
 
@@ -50,14 +52,18 @@ export class AppComponent {
                   }
                   processedResults++;
 
-                  // Cuando todos los resultados han sido procesados
-                  if (processedResults === this.results.length) {
-                    // Filtra los resultados para eliminar aquellos que no tienen watch_providers
-                    this.results = this.results.filter(
-                      (res) => res.watch_providers !== undefined
-                    );
-                    this.loader = false; // Oculta el loader
+                  if(result.watch_providers === undefined) {
+                    this.results = this.results.filter((item) => item.id !== result.id)
                   }
+
+                  // Cuando todos los resultados han sido procesados
+                  // if (processedResults === this.results.length) {
+                  //   // Filtra los resultados para eliminar aquellos que no tienen watch_providers
+                  //   this.results = this.results.filter(
+                  //     (res) => res.watch_providers !== undefined
+                  //   );
+                  //   this.loader = false; // Oculta el loader
+                  // }
                 });
             });
           }
@@ -70,5 +76,26 @@ export class AppComponent {
     this.results = [];
     this.title = '';
     this.country = '';
+    this.searched = false;
+
+  }
+
+  toggleDarkMode(value: boolean) {
+    this.darkMode = value;
+    const body = document.getElementsByTagName('body');
+    const title: any = document.getElementsByClassName('title');
+    const footer: any = document.getElementsByClassName('footer-name');
+    if (this.darkMode) {
+      body[0].style.background = 'rgb(60, 60, 60)';
+      title[0].style.color = 'white';
+      footer[0].style.color = 'white';
+      this.fill = 'white';
+    } else {
+      body[0].style.background = '#f8f8f8';
+      title[0].style.color = '#333';
+      footer[0].style.color = '#333';
+      this.fill = 'black';
+
+    }
   }
 }
