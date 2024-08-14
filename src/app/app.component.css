@@ -182,13 +182,15 @@ select,
 }
 
 .platform-badge {
-  border-radius: 8px;
+    display: inline-block;
+    border-radius: 8px;
     background: lightslategrey;
     font-size: 18px;
     color: white;
     padding: 1%;
     margin-right: 10px;
     margin-top: 10px;
+    width: fit-content;
 }
 
 .disabled {
