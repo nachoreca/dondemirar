@@ -195,7 +195,7 @@ select,
 
 .disabled {
   pointer-events: none;
-  color: gray;
+  color: rgba(255, 254, 254, 0.469);
 }
 
 .card-hidden {
@@ -224,4 +224,13 @@ select,
 
 .dark-mode-icon {
   margin-left: 90%;
+}
+
+
+.error-dark {
+  color: white;
+}
+
+.error-light {
+  color: #333
 }

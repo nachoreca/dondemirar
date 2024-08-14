@@ -35,17 +35,18 @@
     </select>
 
     <button (click)="search()" class="search-btn" [ngClass]="{'disabled': this.title == '' || this.country == '' }">Buscar</button>
-    <button (click)="clear()" class="clear-btn" *ngIf="this.results.length > 0">Limpiar resultados</button>
+    <button (click)="clear()" class="clear-btn" *ngIf="this.searched">Limpiar busqueda</button>
+
 
   </div>
 
-  <!-- <div *ngIf="results.length === 0 && !loader" class="no-results">
-    <p> No se encontraron resultados para {{ this.title }}. </p>
-  </div> -->
+  <div *ngIf="results.length === 0 && searched" class="no-results">
+    <p ngClass="{{this.darkMode ? 'error-dark' : 'error-light'}}"> No se encontraron resultados para {{ this.title }}. </p>
+  </div>
 
   <div *ngIf="loader" class="loader"></div>
 
-  <div class="grid-container">
+  <div class="grid-container" *ngIf="results.length > 0 && searched">
     <div *ngFor="let item of results" class="card">
       <div *ngIf="item.watch_providers" [ngClass]="{'card-hidden': item.watch_providers?.length == 0}">
         <h2 class="card-title">{{ item.title || item.name }}</h2>

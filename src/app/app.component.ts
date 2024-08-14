@@ -77,7 +77,6 @@ export class AppComponent {
     this.title = '';
     this.country = '';
     this.searched = false;
-
   }
 
   toggleDarkMode(value: boolean) {
@@ -89,12 +88,12 @@ export class AppComponent {
       body[0].style.background = 'rgb(60, 60, 60)';
       title[0].style.color = 'white';
       footer[0].style.color = 'white';
-      this.fill = 'white';
+      this.fill = 'white'; //For moon icon
     } else {
       body[0].style.background = '#f8f8f8';
       title[0].style.color = '#333';
       footer[0].style.color = '#333';
-      this.fill = 'black';
+      this.fill = 'black'; //For moon icon
 
     }
   }
