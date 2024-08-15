@@ -122,20 +122,14 @@ select,
 }
 
 .footer {
-
-
   position: fixed;
-  /* margin-top: 90%; */
   align-content: center;
-  padding-left: 15%;
-
-
+  /* padding-left: 15%; */
   text-align: center;
   margin-top: auto;
-  padding: 20px;
+  /* padding: 20px; */
   color: black;
-  /* background-color: #333;
-  color: white; */
+  margin-left: 5%;
 }
 
 .footer a {
@@ -217,7 +211,7 @@ select,
     height: 20px;
     a {
       margin-top: 10%;
-      margin-left: 42%;
+      margin-left: 37%;
     }
   }
 }
